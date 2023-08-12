@@ -25,3 +25,10 @@ body {
     font-size: 28px;
     height: 80px; 
 }
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    padding: 10px;
+}
