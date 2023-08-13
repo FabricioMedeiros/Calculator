@@ -43,3 +43,13 @@ body {
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
+.gray {
+    background-color: #555;
+    color: white;
+}
+
+.orange {
+    background-color: #ff9500;
+    color: white;
+}
