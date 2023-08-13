@@ -32,3 +32,14 @@ body {
     gap: 5px;
     padding: 10px;
 }
+
+.btn {
+    font-size: 24px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
