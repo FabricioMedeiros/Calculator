@@ -60,3 +60,10 @@ function calculate() {
     
     updateDisplay();
 }
+
+function clearDisplay() {
+    firstValue = "";
+    secondValue = "";
+    selectedOperation = "";
+    updateDisplay();
+}
