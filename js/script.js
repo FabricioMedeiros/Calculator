@@ -28,3 +28,8 @@ function appendToDisplay(character) {
         updateDisplay();
     }
 }
+
+function selectOperation(operation) {
+    selectedOperation = operation;
+    updateDisplay();
+}
