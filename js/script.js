@@ -33,3 +33,30 @@ function selectOperation(operation) {
     selectedOperation = operation;
     updateDisplay();
 }
+
+function calculate() {
+    const num1 = parseFloat(firstValue);
+    const num2 = parseFloat(secondValue);
+    
+    switch (selectedOperation) {
+        case "+":
+            firstValue = (num1 + num2).toString();
+            break;
+        case "-":
+            firstValue = (num1 - num2).toString();
+            break;
+        case "*":
+            firstValue = (num1 * num2).toString();
+            break;
+        case "/":
+            firstValue = (num1 / num2).toString();
+            break;
+        default:
+            firstValue = "Error";
+    }
+
+    secondValue = "";
+    selectedOperation = "";
+    
+    updateDisplay();
+}
