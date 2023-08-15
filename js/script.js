@@ -67,3 +67,12 @@ function clearDisplay() {
     selectedOperation = "";
     updateDisplay();
 }
+
+function toggleSign() {
+    if (selectedOperation === "") {
+        firstValue = (-parseFloat(firstValue)).toString();
+    } else {
+        secondValue = (-parseFloat(secondValue)).toString();
+    }
+    updateDisplay();
+}
