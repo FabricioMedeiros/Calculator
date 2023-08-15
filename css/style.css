@@ -53,3 +53,9 @@ body {
     background-color: #ff9500;
     color: white;
 }
+
+.zero {
+    grid-column: span 2;
+    background-color: #555;
+    color: white;
+}
