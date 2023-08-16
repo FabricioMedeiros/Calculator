@@ -1,6 +1,7 @@
 let firstValue = "";
 let secondValue = "";
 let selectedOperation = "";
+let isPercentageInput = false;
 
 function updateDisplay() {
     const display = document.getElementById("result");
@@ -12,7 +13,24 @@ function updateDisplay() {
 }
 
 function appendToDisplay(character) {
+    if (character === "%") {
+        if (firstValue !== "" && selectedOperation === "") {
+            firstValue = (parseFloat(firstValue) / 100).toString();
+            updateDisplay();
+        }
+        else{
+            isPercentageInput = true;
+        }
+        return;
+    }
+
     if (selectedOperation === "") {
+        if (isPercentageInput) {
+            secondValue += character;
+            updateDisplay();
+            return;
+        }
+
         if (firstValue === "0" && character !== ".") {
             firstValue = character;
         } else {
@@ -30,14 +48,34 @@ function appendToDisplay(character) {
 }
 
 function selectOperation(operation) {
+    if (firstValue === ""){
+      return;
+    }
+
     selectedOperation = operation;
     updateDisplay();
 }
 
+function calculatePercentage(value, percentage) {
+    return (value * percentage) / 100;
+}
+
 function calculate() {
-    const num1 = parseFloat(firstValue);
-    const num2 = parseFloat(secondValue);
-    
+    if (!firstValue || !secondValue) {
+        return;
+    }
+
+    var num1 = parseFloat(firstValue);
+    var num2 = parseFloat(secondValue);
+
+    if ((selectedOperation === "+" || selectedOperation === "-") && isPercentageInput){ 
+      num2 = calculatePercentage(num1, num2);
+    }
+
+    if ((selectedOperation === "*" || selectedOperation === "/") && isPercentageInput){ 
+      num2 = (num2 /100);
+    }
+
     switch (selectedOperation) {
         case "+":
             firstValue = (num1 + num2).toString();
@@ -57,7 +95,8 @@ function calculate() {
 
     secondValue = "";
     selectedOperation = "";
-    
+    isPercentageInput = false;
+
     updateDisplay();
 }
 
@@ -65,6 +104,7 @@ function clearDisplay() {
     firstValue = "";
     secondValue = "";
     selectedOperation = "";
+    isPercentageInput = false;
     updateDisplay();
 }
 
