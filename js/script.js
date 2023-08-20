@@ -48,12 +48,12 @@ function appendToDisplay(character) {
 }
 
 function selectOperation(operation) {
-    if (firstValue === ""){
-      return;
-    }
-
-    selectedOperation = operation;
-    updateDisplay();
+  if (firstValue === ""){
+    return;
+   }
+   
+   selectedOperation = operation;
+   updateDisplay();
 }
 
 function calculatePercentage(value, percentage) {
