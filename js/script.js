@@ -2,6 +2,7 @@ let firstValue = "";
 let secondValue = "";
 let selectedOperation = "";
 let isPercentageInput = false;
+let isFirstValueCalculate = false;
 
 function updateDisplay() {
     const display = document.getElementById("result");
@@ -31,8 +32,9 @@ function appendToDisplay(character) {
             return;
         }
 
-        if (firstValue === "0" && character !== ".") {
+        if ((firstValue === "0" && character !== ".") || isFirstValueCalculate) {
             firstValue = character;
+			isFirstValueCalculate = false;
         } else {
             firstValue += character;
         }
@@ -48,7 +50,7 @@ function appendToDisplay(character) {
 }
 
 function selectOperation(operation) {
-  if (firstValue === ""){
+   if (firstValue === ""){
     return;
    }
    
@@ -96,6 +98,7 @@ function calculate() {
     secondValue = "";
     selectedOperation = "";
     isPercentageInput = false;
+	isFirstValueCalculate = true;
 
     updateDisplay();
 }
@@ -105,6 +108,7 @@ function clearDisplay() {
     secondValue = "";
     selectedOperation = "";
     isPercentageInput = false;
+	isFirstValueCalculate = false;
     updateDisplay();
 }
 
